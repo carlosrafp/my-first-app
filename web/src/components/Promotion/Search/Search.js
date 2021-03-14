@@ -9,7 +9,7 @@ const PromotionSearch = () => {
     const mountRef = useRef(false);
     const [search, setSearch] = useState('');
     const [load, loadInfo] = useAPI({
-        debounceDelay: mountRef.current ? 300 : 1, //nao dar debounce na montagem
+        debounceDelay: mountRef.current ? 300 : 0, //nao dar debounce na montagem
         url: '/promotions',
         method: 'get',
         params: {
