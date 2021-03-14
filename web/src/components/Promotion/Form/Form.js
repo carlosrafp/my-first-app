@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Form.css';
-import axios from 'axios';
+import useAPI from 'components/utils/useAPI';
 import { useHistory } from 'react-router-dom';
 
 const initialValue = {
@@ -13,15 +13,30 @@ const initialValue = {
 const PromotionForm = ({ id }) => {
     const [values, setValues] = useState(id ? null : initialValue);  // estado dos campos, null se edit, valor inicial se create
     const history = useHistory();  // para redirecionar para outra pagina
+    const [load, loadInfo] = useAPI({
+        url: `http://localhost:5000/promotions/${id}`,
+        method: 'get', // nao tem params
+        onCompleted: (response) => {
+            setValues(response.data);
+        }
+    });
+    const [save, saveInfo] = useAPI({
+        url: id
+            ? `http://localhost:5000/promotions/${id}`
+            : 'http://localhost:5000/promotions',
+        method: id ? 'put' : 'post',
+        // data: values,    /// suprimi por que onSubmit passara os valores agora
+        onCompleted: (response) => {
+            if (!response.error) {
+                history.push('/');
+            }
+        }
+    });
 
     useEffect(() => {  // para rodar antes de montar o componente
-        if (id) {
-            axios.get(`http://localhost:5000/promotions/${id}`)  // so faz sentido buscar dados se for editar
-                .then((response) => {
-                    setValues(response.data);
-                });
-        }
+        load(); // usar api para buscar dados
     }, []); // [] significa rodar apenas na montagem
+    // ambos produzem mesmo resultado pq id nao vai mudar a nao ser a pagina toda mude
 
     function onChange(ev) {  // atualizacao online de values toda vez que os inputs mudarem
         const { name, value } = ev.target;
@@ -30,15 +45,9 @@ const PromotionForm = ({ id }) => {
 
     function onSubmit(ev) {
         ev.preventDefault();
-        const method = id ? 'put' : 'post';  //put modifica, post acrecenta - api ja espera isso
-        const url = id
-            ? `http://localhost:5000/promotions/${id}`
-            : 'http://localhost:5000/promotions';
-        //axios[method](`http://localhost:5000/promotions${id ? `/${id}` : ''}`, values)
-        axios[method](url, values)
-            .then((response) => {
-                history.push('/'); // retorna para pag principal
-            });
+        save({
+            data: values  // poderiam ser formatados antes de serem passados, por exemplo
+        });
     }
 
     //if (!values){
@@ -53,6 +62,7 @@ const PromotionForm = ({ id }) => {
                 ? (<div>Carregando...</div>)
                 : (
                     <form onSubmit={onSubmit}>
+                        {saveInfo.loading && <span>Salvando dados...</span>}
                         <div className="promotion-form__group">
                             <label htmlFor="title">Título</label>
                             <input id="title" name="title" type="text" onChange={onChange} value={values.title} />
