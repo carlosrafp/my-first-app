@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PromotionSearch from 'components/Promotion/Search/Search';
 import UIContainer from 'components/IU/Container/Container'
 
