@@ -13,8 +13,8 @@ const initialValue = {
 const PromotionForm = ({ id }) => {
     const [values, setValues] = useState(id ? null : initialValue);  // estado dos campos, null se edit, valor inicial se create
     const history = useHistory();  // para redirecionar para outra pagina
-    const [load, loadInfo] = useAPI({
-        url: `http://localhost:5000/promotions/${id}`,
+    const [load] = useAPI({  //nao precisa do segunda varivel, neste caso, apemas load
+        url: `/promotions/${id}`,
         method: 'get', // nao tem params
         onCompleted: (response) => {
             setValues(response.data);
@@ -22,8 +22,8 @@ const PromotionForm = ({ id }) => {
     });
     const [save, saveInfo] = useAPI({
         url: id
-            ? `http://localhost:5000/promotions/${id}`
-            : 'http://localhost:5000/promotions',
+            ? `/promotions/${id}`
+            : '/promotions',
         method: id ? 'put' : 'post',
         // data: values,    /// suprimi por que onSubmit passara os valores agora
         onCompleted: (response) => {
@@ -34,8 +34,10 @@ const PromotionForm = ({ id }) => {
     });
 
     useEffect(() => {  // para rodar antes de montar o componente
-        load(); // usar api para buscar dados
-    }, []); // [] significa rodar apenas na montagem
+        if (id) {
+            load(); // usar api para buscar dados
+        }  // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [id]); // [] significa rodar apenas na montagem
     // ambos produzem mesmo resultado pq id nao vai mudar a nao ser a pagina toda mude
 
     function onChange(ev) {  // atualizacao online de values toda vez que os inputs mudarem

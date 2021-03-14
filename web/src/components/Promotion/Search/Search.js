@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Search.css';
 import PromotionList from '../List/List';
@@ -6,9 +6,11 @@ import useAPI from 'components/utils/useAPI';
 
 const PromotionSearch = () => {
     //const [promotions, setPromotions] = useState([]);
+    const mountRef = useRef(false);
     const [search, setSearch] = useState('');
     const [load, loadInfo] = useAPI({
-        url: 'http://localhost:5000/promotions',
+        debounceDelay: mountRef.current ? 300 : 1, //nao dar debounce na montagem
+        url: '/promotions',
         method: 'get',
         params: {
             _embed: 'comments',
@@ -25,7 +27,13 @@ const PromotionSearch = () => {
 
     useEffect(() => {
         load();  // usa a funcao load do hook personalizado (useAPI)
-    }, [search]); // quando montar componente ou mudar search
+        if (!mountRef.current) {  // ainda nao montou o componente
+            mountRef.current = true;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps 
+    }, [search]); // quando montar componente ou mudar search, 
+    // nao pode procurar mudanca em load, pq load muda a cada renderizacao e daria loop infinito de requests
+    // comentario eslint acima eh para suprimir o warning do compiler quanto a nao passagem do load no segundo parametrdo do useEffect
 
     return (
         <div className="promotion-search">

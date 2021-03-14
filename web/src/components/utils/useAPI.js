@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import useDebouncedPromise from 'components/utils/useDebouncedPromise';
 
 const initialState = {
     error: null,
@@ -9,6 +10,7 @@ const initialState = {
 
 export default function useAPI(config) {
     const [requestInfo, setRequestInfo] = useState(initialState);
+    const debouncedAxios = useDebouncedPromise(axios, config.debounceDelay);
 
     async function call(localConfig) {
         setRequestInfo({
@@ -17,8 +19,8 @@ export default function useAPI(config) {
         });
         let response = null;
         try {
-            response = await axios({
-                // baseUrl: 'http://localhost:5000', // se quiser parar de escrever o caminho inteiro  
+            response = await debouncedAxios({
+                baseURL: 'http://localhost:5000', // se quiser parar de escrever o caminho inteiro  
                 ...config,  // spread da config com localConfig,
                 ...localConfig // assim localConfig pode  receber 'data' por exemplo
             }); // await eh opcao ao invez de .then(), mas requer async na function
