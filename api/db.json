@@ -47,12 +47,38 @@
     {
       "id": 1,
       "comment": "TELA HD",
-      "promotionId": 1
+      "promotionId": 1,
+      "userId": 2
     },
     {
       "id": 2,
       "comment": "de R$ 599,90 \n por R$246,05à vista \n (5% de desconto) \n ou R$ 259,00 em 5x de R$ 51,80 sem juros",
-      "promotionId": 2
+      "promotionId": 2,
+      "userId": 1
+    },
+    {
+      "userId": 1,
+      "promotionId": 1,
+      "comment": "Excelente TV mesmo. Mariana tem zap?",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "promotionId": 4,
+      "comment": "Preco eh justo",
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Vinicius",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/2660570?s=460&u=0272b07dc178814cbdfc62065c2ad88b95bb6b08&v=4"
+    },
+    {
+      "id": 2,
+      "name": "Mariana",
+      "avatarUrl": "https://instagram.fplu3-1.fna.fbcdn.net/v/t51.2885-19/s150x150/93013715_652052338693625_6025388234916233216_n.jpg?tp=1&_nc_ht=instagram.fplu3-1.fna.fbcdn.net&_nc_ohc=ctt4OOpoM7EAX_eriFa&oh=9d843bdc09fa1d5a5473a98b07eef62b&oe=6079D329"
     }
   ]
 }
