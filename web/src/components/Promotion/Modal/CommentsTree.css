@@ -1,0 +1,29 @@
+.promotion-modal-comments-tree {
+  list-style: none;
+  font-size: 14px;
+  padding-left: 0;
+}
+
+.promotion-modal-comments-tree__item {
+  display: flex;
+}
+
+.promotion-modal-comments-tree__item__avatar {
+  list-style: none;
+  width: 49px;
+  height: 49px;
+  margin-right: 15px;
+}
+
+.promotion-modal-comments-tree__item__info {
+  list-style: none;
+  border-left: 10px;
+}
+
+.promotion-modal-comments-tree__item__info p {
+  margin-top: 10px;
+}
+
+.promotion-modal-comments-tree__item__name {
+  font-weight: 600;
+}
