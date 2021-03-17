@@ -1,51 +1,51 @@
-import { useState } from 'react';
-import axios from 'axios';
-import useDebouncedPromise from 'components/utils/useDebouncedPromise';
+import { useState } from "react";
+import axios from "axios";
+import useDebouncedPromise from "components/utils/useDebouncedPromise";
 
-const initialState = {
+const initialRequestInfo = {
   error: null,
   data: null,
-  loading: false
+  loading: false,
 };
 
 export default function useAPI(config) {
-  const [requestInfo, setRequestInfo] = useState(initialState);
+  const [requestInfo, setRequestInfo] = useState(initialRequestInfo);
   const debouncedAxios = useDebouncedPromise(axios, config.debounceDelay);
 
   async function call(localConfig) {
-    setRequestInfo({
-      ...initialState, //usa initialState em vez de requestInfo para garantir que request proximos nao misturem dados uns com outros
-      loading: true
-    });
     let response = null;
-    try {
-      response = await debouncedAxios({
-        baseURL: 'http://localhost:5000', // se quiser parar de escrever o caminho inteiro  
-        ...config,  // spread da config com localConfig,
-        ...localConfig // assim localConfig pode  receber 'data' por exemplo
-      }); // await eh opcao ao invez de .then(), mas requer async na function
+
+    const finalConfig = {
+      baseURL: "http://localhost:5000", // se quiser parar de escrever o caminho inteiro
+      ...config, // spread da config com localConfig,
+      ...localConfig, // assim localConfig pode  receber 'data' por exemplo
+    };
+
+    if (!finalConfig.quietly) {
       setRequestInfo({
-        ...initialState, //usa initialState porque loading agora eh falso, assim como no estado inicial
-        data: response.data
+        ...initialRequestInfo, //usa initialState em vez de requestInfo para garantir que request proximos nao misturem dados uns com outros
+        loading: true,
       });
     }
-    catch (error) {
+
+    try {
+      response = await debouncedAxios(finalConfig); // await eh opcao ao invez de .then(), mas requer async na function
       setRequestInfo({
-        ...initialState, //usa initialState porque loading agora eh falso, assim como no estado inicial
-        error /// igual a error: error
+        ...initialRequestInfo, //usa initialState porque loading agora eh falso, assim como no estado inicial
+        data: response.data,
+      });
+    } catch (error) {
+      setRequestInfo({
+        ...initialRequestInfo, //usa initialState porque loading agora eh falso, assim como no estado inicial
+        error, /// igual a error: error
       });
     }
 
     if (config.onCompleted) {
       config.onCompleted(response);
-
     }
-
+    return response;
   }
 
-  return [
-    call,
-    requestInfo
-  ];
+  return [call, requestInfo];
 }
-

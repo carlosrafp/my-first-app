@@ -67,6 +67,61 @@
       "promotionId": 4,
       "comment": "Preco eh justo",
       "id": 4
+    },
+    {
+      "userId": 1,
+      "parentId": 4,
+      "comment": "verdade",
+      "promotionId": 4,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "parentId": 1,
+      "comment": "nao me ignore por favor...",
+      "promotionId": 1,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "promotionId": 5,
+      "comment": "muito legal",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "parentId": 7,
+      "comment": "sim sim",
+      "promotionId": 5,
+      "id": 8
+    },
+    {
+      "userId": 2,
+      "parentId": 4,
+      "comment": "discordo",
+      "promotionId": 4,
+      "id": 9
+    },
+    {
+      "userId": 2,
+      "parentId": 9,
+      "comment": "kkkkk",
+      "promotionId": 4,
+      "id": 10
+    },
+    {
+      "userId": 2,
+      "promotionId": 5,
+      "comment": "nao achei",
+      "parentId": 7,
+      "id": 11
+    },
+    {
+      "userId": 2,
+      "promotionId": 5,
+      "comment": "kkkk",
+      "parentId": 7,
+      "id": 12
     }
   ],
   "users": [
