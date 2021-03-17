@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 
 export default function useDebouncedPromise(fn, delay) {
   //const [timeoutRef, setTimeoutRef] = useState(null); // poderia ser usado useState obriga renderizacao toda vez que o estado muda
@@ -10,6 +10,7 @@ export default function useDebouncedPromise(fn, delay) {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
+
       timeoutRef.current = window.setTimeout(async () => {
         try {
           const response = await fn(...params);
