@@ -9,6 +9,10 @@
 	],
 	"settings": {
 		"editor.fontFamily": "Operator Mono Light",
-		"workbench.preferredDarkColorTheme": "Dracula"
+		"workbench.preferredDarkColorTheme": "Dracula",
+		"typescript.preferences.quoteStyle": "single",
+		"javascript.preferences.quoteStyle": "single",
+		"prettier.singleQuote": true,
+		"editor.tabSize": 2
 	}
 }

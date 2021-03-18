@@ -5,7 +5,6 @@ import './Modal.css';
 const portalRoot = document.getElementById('portal-root');
 
 const UIModal = ({ children, isOpen, onClickClose }) => {
-
   if (!isOpen) {
     return null;
   }
@@ -16,7 +15,10 @@ const UIModal = ({ children, isOpen, onClickClose }) => {
         <button
           type="button"
           className="ui-modal__close-button"
-          onClick={onClickClose}>X</button>
+          onClick={onClickClose}
+        >
+          X
+        </button>
         {children}
       </div>
     </div>,
