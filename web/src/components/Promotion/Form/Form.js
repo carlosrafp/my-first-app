@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import FormField from 'components/Form/Field';
 import useAPI from 'components/utils/useAPI';
+import UIButton from 'components/UI/Button/Button';
 import schema from './schema';
 import './Form.css';
 
@@ -86,7 +87,9 @@ const PromotionForm = ({ id }) => {
                 />
               </div>
               <div>
-                <button type="submit">Salvar</button>
+                <UIButton component="button" type="submit">
+                  Salvar
+                </UIButton>
               </div>
             </Form>
           )}
