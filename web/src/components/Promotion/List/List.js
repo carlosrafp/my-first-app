@@ -6,21 +6,15 @@ import PromotionModal from 'components/Promotion/Modal/Modal';
 const PromotionList = ({ loading, error, promotions }) => {
   const [promotionId, setPromotionId] = useState(null);
   if (error) {
-    return (
-      <div>Algo de errado ocorreu.</div>
-    );
+    return <div>Algo de errado ocorreu.</div>;
   }
 
-  if (loading || !promotions) {
-    return (
-      <div>Carregando...</div>
-    );
+  if (!promotions) {
+    return <div>Carregando...</div>;
   }
 
   if (promotions.length === 0) {
-    return (
-      <div>Nenhum resultado encontrado.</div>
-    );
+    return <div>Nenhum resultado encontrado.</div>;
   }
 
   return (
@@ -28,12 +22,18 @@ const PromotionList = ({ loading, error, promotions }) => {
       {promotions.map((promotion) => (
         <PromotionCard
           promotion={promotion}
-          onClickComments={() => { setPromotionId(promotion.id) }} />
+          onClickComments={() => {
+            setPromotionId(promotion.id);
+          }}
+        />
       ))}
+      {loading && <div>Carregando mais promoções...</div>}
       {promotionId && (
         <PromotionModal
           promotionId={promotionId}
-          onClickClose={() => { setPromotionId(null) }}
+          onClickClose={() => {
+            setPromotionId(null);
+          }}
         />
       )}
     </div>

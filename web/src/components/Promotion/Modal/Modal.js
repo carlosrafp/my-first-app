@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
-import UIModal from "components/UI/Modal/Modal";
-import useAPI from "components/utils/useAPI";
-import PromotionModalCommentsTree from "components/Promotion/Modal/CommentsTree/CommentsTree";
-import "./Modal.css";
+import React, { useEffect, useState } from 'react';
+import UIModal from 'components/UI/Modal/Modal';
+import useAPI from 'components/utils/useAPI';
+import PromotionModalCommentsTree from 'components/Promotion/Modal/CommentsTree/CommentsTree';
+import './Modal.css';
 
 const PromotionModal = ({ promotionId, onClickClose }) => {
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState('');
   const [load, loadInfo] = useAPI({
-    url: "/comments",
-    method: "GET",
+    url: '/comments',
+    method: 'GET',
     params: {
-      _expand: "user", // acrescentar o usuario do comentario de acordo com userId
+      _expand: 'user', // acrescentar o usuario do comentario de acordo com userId
       promotionId, // promotionId : promotionId  >> mesma coisa
     },
   });
 
   const [sendComment, sendCommentInfo] = useAPI({
-    url: "/comments",
-    method: "POST",
+    url: '/comments',
+    method: 'POST',
   });
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const PromotionModal = ({ promotionId, onClickClose }) => {
           comment,
         },
       });
-      setComment(""); // ja enviou comentario, entao esvaziar a caixa
+      setComment(''); // ja enviou comentario, entao esvaziar a caixa
       load({ quietly: true }); // chama a lista de novo, so que se aparecer carregando
     } catch (e) {}
   }
@@ -62,7 +62,7 @@ const PromotionModal = ({ promotionId, onClickClose }) => {
           disabled={sendCommentInfo.loading}
         />
         <button type="submit" disabled={sendCommentInfo.loading}>
-          {sendCommentInfo.loading ? "Enviando..." : "Enviar"}
+          {sendCommentInfo.loading ? 'Enviando...' : 'Enviar'}
         </button>
       </form>
       <PromotionModalCommentsTree

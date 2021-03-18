@@ -41,6 +41,13 @@
       "imageUrl": "https://cdn.gatry.com/gatry-static/promocao/imagem/70c40261fd49a665ebde6c1aedb9b129.jpg",
       "price": "17.99",
       "id": 6
+    },
+    {
+      "title": "Furadeira Parafusadeira À Bateria Trevalla TL-FME-P02-7 Azul 12V - Marketplace",
+      "url": "https://amzn.to/3tMXa3V",
+      "imageUrl": "https://cdn.gatry.com/gatry-static/promocao/imagem/0143a6bdc9071d95908db9ec3c0814fc.jpg",
+      "price": "99.01",
+      "id": 7
     }
   ],
   "comments": [
@@ -122,6 +129,13 @@
       "comment": "kkkk",
       "parentId": 7,
       "id": 12
+    },
+    {
+      "userId": 2,
+      "promotionId": 1,
+      "comment": "deixa de ser ze mane, eu tenho um namorado gostoso que me completa",
+      "parentId": 6,
+      "id": 13
     }
   ],
   "users": [
