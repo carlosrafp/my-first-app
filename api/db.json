@@ -48,44 +48,9 @@
       "imageUrl": "https://cdn.gatry.com/gatry-static/promocao/imagem/0143a6bdc9071d95908db9ec3c0814fc.jpg",
       "price": "99.01",
       "id": 7
-    },
-    {
-      "title": "Máscara Lavável De Tecido 3m Tam. Único Uu01125343 3m Pt 1 Un",
-      "url": "https://www.kalunga.com.br/prod/mascara-lavavel-de-tecido-3m-tam-unico-uu01125343-3m-pt-1-un/549785",
-      "imageUrl": "https://cdn.gatry.com/gatry-static/promocao/imagem/db350da79299280c8542d365e2ea4770.jpg",
-      "price": "18.62",
-      "id": 8
     }
   ],
-  "comments": [
-    {
-      "userId": 1,
-      "promotionId": 4,
-      "comment": "Preco eh justo",
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "parentId": 4,
-      "comment": "verdade",
-      "promotionId": 4,
-      "id": 5
-    },
-    {
-      "userId": 2,
-      "parentId": 4,
-      "comment": "discordo",
-      "promotionId": 4,
-      "id": 9
-    },
-    {
-      "userId": 2,
-      "parentId": 9,
-      "comment": "kkkkk",
-      "promotionId": 4,
-      "id": 10
-    }
-  ],
+  "comments": [],
   "users": [
     {
       "id": 1,
