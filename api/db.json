@@ -48,27 +48,16 @@
       "imageUrl": "https://cdn.gatry.com/gatry-static/promocao/imagem/0143a6bdc9071d95908db9ec3c0814fc.jpg",
       "price": "99.01",
       "id": 7
+    },
+    {
+      "title": "Máscara Lavável De Tecido 3m Tam. Único Uu01125343 3m Pt 1 Un",
+      "url": "https://www.kalunga.com.br/prod/mascara-lavavel-de-tecido-3m-tam-unico-uu01125343-3m-pt-1-un/549785",
+      "imageUrl": "https://cdn.gatry.com/gatry-static/promocao/imagem/db350da79299280c8542d365e2ea4770.jpg",
+      "price": "18.62",
+      "id": 8
     }
   ],
   "comments": [
-    {
-      "id": 1,
-      "comment": "TELA HD",
-      "promotionId": 1,
-      "userId": 2
-    },
-    {
-      "id": 2,
-      "comment": "de R$ 599,90 \n por R$246,05à vista \n (5% de desconto) \n ou R$ 259,00 em 5x de R$ 51,80 sem juros",
-      "promotionId": 2,
-      "userId": 1
-    },
-    {
-      "userId": 1,
-      "promotionId": 1,
-      "comment": "Excelente TV mesmo. Mariana tem zap?",
-      "id": 3
-    },
     {
       "userId": 1,
       "promotionId": 4,
@@ -83,26 +72,6 @@
       "id": 5
     },
     {
-      "userId": 1,
-      "parentId": 1,
-      "comment": "nao me ignore por favor...",
-      "promotionId": 1,
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "promotionId": 5,
-      "comment": "muito legal",
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "parentId": 7,
-      "comment": "sim sim",
-      "promotionId": 5,
-      "id": 8
-    },
-    {
       "userId": 2,
       "parentId": 4,
       "comment": "discordo",
@@ -115,27 +84,6 @@
       "comment": "kkkkk",
       "promotionId": 4,
       "id": 10
-    },
-    {
-      "userId": 2,
-      "promotionId": 5,
-      "comment": "nao achei",
-      "parentId": 7,
-      "id": 11
-    },
-    {
-      "userId": 2,
-      "promotionId": 5,
-      "comment": "kkkk",
-      "parentId": 7,
-      "id": 12
-    },
-    {
-      "userId": 2,
-      "promotionId": 1,
-      "comment": "deixa de ser ze mane, eu tenho um namorado gostoso que me completa",
-      "parentId": 6,
-      "id": 13
     }
   ],
   "users": [

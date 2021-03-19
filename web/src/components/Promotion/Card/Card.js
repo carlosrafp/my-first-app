@@ -1,15 +1,23 @@
 import React from 'react';
-import './Card.css';
 import { Link } from 'react-router-dom';
+import { IoTrashBinOutline } from 'react-icons/io5';
 import UIButton from 'components/UI/Button/Button';
+import './Card.css';
 
-const PromotionCard = ({ promotion, onClickComments }) => (
+const PromotionCard = ({ promotion, onClickComments, onClickDelete }) => (
   <div className="promotion-card">
     <img
       src={promotion.imageUrl}
       className="promotion-card__image"
       alt={promotion.title}
     />
+    <button
+      type="button"
+      className="promotion-card__delete-button"
+      onClick={onClickDelete}
+    >
+      <IoTrashBinOutline />
+    </button>
     <div className="promotion-card__info">
       <h1 className="promotion-card__title">{promotion.title}</h1>
       <span className="promotion-card__price">R$ {promotion.price}</span>
