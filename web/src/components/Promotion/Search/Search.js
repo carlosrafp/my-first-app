@@ -10,7 +10,7 @@ const baseParams = {
   _embed: 'comments',
   _order: 'desc',
   _sort: 'id',
-  _limit: 2,
+  _limit: 3,
 };
 
 const PromotionSearch = () => {
@@ -19,7 +19,7 @@ const PromotionSearch = () => {
   const mountRef = useRef(false);
   const [search, setSearch] = useState('');
   const [load, loadInfo] = useAPI({
-    debounceDelay: mountRef.current ? 300 : 0, //nao dar debounce na montagem
+    debounceDelay: mountRef.current ? 300 : 1, //nao dar debounce na montagem
     url: '/promotions',
     method: 'get',
     //onCompleted: (response) => {  // nao precisa ja que vamos usar loading info diretamente
@@ -82,6 +82,13 @@ const PromotionSearch = () => {
         promotions={loadInfo.data}
         loading={loadInfo.loading}
         error={loadInfo.error}
+        refetch={() => {
+          setPage(1);
+          load({
+            params: baseParams,
+            data: loadInfo.data,
+          });
+        }}
       />
       {loadInfo.data &&
         !loadInfo.loading &&

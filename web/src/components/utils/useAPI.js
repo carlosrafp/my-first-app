@@ -12,7 +12,7 @@ export default function useAPI(config) {
   const [requestInfo, setRequestInfo] = useState(initialRequestInfo);
   const debouncedAxios = useDebouncedPromise(axios, config.debounceDelay);
 
-  async function call(localConfig, updateRequestInfo) {
+  async function call(localConfig) {
     let response = null;
 
     const finalConfig = {
