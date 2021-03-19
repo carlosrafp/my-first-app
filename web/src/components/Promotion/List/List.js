@@ -32,6 +32,8 @@ const PromotionList = ({ loading, error, promotions, refetch }) => {
           onClickDelete={async () => {
             await deletePromotion({
               url: `/promotions/${promotion.id}`,
+              onDelete: true, // deletara promocao entao deve esvaziar RequestInfo e nao deixar loading,
+              //poderia passar promotion.id tb se fosse necessario manipular requestInfo
             });
             refetch();
           }}

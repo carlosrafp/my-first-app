@@ -86,7 +86,7 @@ const PromotionSearch = () => {
           setPage(1);
           load({
             params: baseParams,
-            data: loadInfo.data,
+            //data: loadInfo.data,
           });
         }}
       />

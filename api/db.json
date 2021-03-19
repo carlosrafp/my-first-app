@@ -57,35 +57,7 @@
       "id": 8
     }
   ],
-  "comments": [
-    {
-      "userId": 1,
-      "promotionId": 4,
-      "comment": "Preco eh justo",
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "parentId": 4,
-      "comment": "verdade",
-      "promotionId": 4,
-      "id": 5
-    },
-    {
-      "userId": 2,
-      "parentId": 4,
-      "comment": "discordo",
-      "promotionId": 4,
-      "id": 9
-    },
-    {
-      "userId": 2,
-      "parentId": 9,
-      "comment": "kkkkk",
-      "promotionId": 4,
-      "id": 10
-    }
-  ],
+  "comments": [],
   "users": [
     {
       "id": 1,

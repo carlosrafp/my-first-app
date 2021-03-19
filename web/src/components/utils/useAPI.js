@@ -8,7 +8,11 @@ const initialRequestInfo = {
   loading: false,
 };
 
+//const ondeleteInit = {
+//  id: 0,
+//};
 export default function useAPI(config) {
+  //const [ondelete, setOndelete] = useState(ondeleteInit);
   const [requestInfo, setRequestInfo] = useState(initialRequestInfo);
   const debouncedAxios = useDebouncedPromise(axios, config.debounceDelay);
 
@@ -22,7 +26,17 @@ export default function useAPI(config) {
       ...localConfig, // assim localConfig pode  receber 'data' por exemplo
     };
 
-    if (finalConfig.isFetchMore) {
+    if (finalConfig.onDelete) {
+      //setOndelete({
+      //    ...ondeleteInit,
+      //    id: finalConfig.onDelete, // se fosse passar o id a promocao
+      //  });
+      setRequestInfo({
+        ...initialRequestInfo, //usa initialState em vez de requestInfo para garantir que request proximos nao misturem dados uns com outros e zerar lista
+        loading: false, /// nao fazer 2 loading, mas o mais importante eh nao zerar o conteudo
+      });
+      //console.log('ondelete = ', ondelete);
+    } else if (finalConfig.isFetchMore) {
       setRequestInfo({
         ...initialRequestInfo, //usa initialState em vez de requestInfo para garantir que request proximos nao misturem dados uns com outros
         data: requestInfo.data,
